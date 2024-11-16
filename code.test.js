@@ -1,6 +1,21 @@
-import { capitalise } from "./code";
+import { calculate, reversesString, capitalise } from "./code.js";
 
-test("capitalises first character of string", () => {
-   const testString = "Cat";
-   expect(capitalise("cat")).toBe("Cat");
+describe("All tests to be carried out", () => {
+   const testString = "cat";
+
+   test("capitalises first character of string", () => {
+      expect(capitalise(testString)).toBe("Cat");
+   });
+
+   test("reverses a string", () => {
+      expect(reversesString(testString)).toBe("tac");
+   });
+
+   test("returns calculation of two numbers", () => {
+      expect(calculate(3, 4, "*")).toBe(12);
+   });
+
+   test("shift alphanumeric characters by a shift factor", () => {
+    
+   })
 });
