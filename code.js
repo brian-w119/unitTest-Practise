@@ -27,10 +27,17 @@ function calculate(num1, num2, operation) {
    return result;
 }
 
-function shiftString(string) {
+function shiftString(string, shift) {
    let newString = string;
-   string = string.split("");
-   const converted = string.map((value) => string.charCodeAt(value));
+   newString = newString.split("");
+   //converts to ASCII
+   let converted = newString.map((value) => value.charCodeAt(0));
+   //cipher shift
+   converted = converted.map((value) => value + shift);
+   //converts to back to alpha numeric
+   let convertToAlphaNum = converted.map((value) => String.fromCharCode(value));
+   convertToAlphaNum = convertToAlphaNum.join("");
+   return convertToAlphaNum;
 }
 
-export { capitalise, reversesString, calculate };
+export { capitalise, reversesString, calculate, shiftString };

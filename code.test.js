@@ -1,4 +1,4 @@
-import { calculate, reversesString, capitalise } from "./code.js";
+import { calculate, reversesString, capitalise, shiftString } from "./code.js";
 
 describe("All tests to be carried out", () => {
    const testString = "cat";
@@ -16,6 +16,6 @@ describe("All tests to be carried out", () => {
    });
 
    test("shift alphanumeric characters by a shift factor", () => {
-    
-   })
+      expect(shiftString("abc", 1)).toBe("bcd");
+   });
 });
