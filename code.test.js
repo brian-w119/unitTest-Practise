@@ -16,6 +16,6 @@ describe("All tests to be carried out", () => {
    });
 
    test("shift alphanumeric characters by a shift factor", () => {
-      expect(shiftString("abc", 1)).toBe("bcd");
+      expect(shiftString("a b", 1)).toBe("b c");
    });
 });

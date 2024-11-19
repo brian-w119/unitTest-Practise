@@ -26,18 +26,28 @@ function calculate(num1, num2, operation) {
    }
    return result;
 }
-
 function shiftString(string, shift) {
+   const outputArr = [];
    let newString = string;
    newString = newString.split("");
-   //converts to ASCII
-   let converted = newString.map((value) => value.charCodeAt(0));
-   //cipher shift
-   converted = converted.map((value) => value + shift);
-   //converts to back to alpha numeric
-   let convertToAlphaNum = converted.map((value) => String.fromCharCode(value));
-   convertToAlphaNum = convertToAlphaNum.join("");
-   return convertToAlphaNum;
+
+   for (let i = 0; i < newString.length; i++) {
+      if (regexTest(newString[i])) {
+         let converted = newString[i].charCodeAt(0);
+         converted += shift;
+         converted = String.fromCharCode(converted);
+         outputArr.push(converted);
+      } else {
+         outputArr.push(newString[i]);
+      }
+   }
+   const output = outputArr.join("");
+   return output;
+}
+
+function regexTest(string) {
+   const regex = /^[a-zA-Z]*$/;
+   return regex.test(string);
 }
 
 export { capitalise, reversesString, calculate, shiftString };
