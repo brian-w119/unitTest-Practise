@@ -50,4 +50,51 @@ function regexTest(string) {
    return regex.test(string);
 }
 
+function populateObj(array) {
+   const min = Math.min(array);
+   const max = Math.max(array);
+   const length = array.length;
+
+   const sum = () => {
+      let total = 0;
+      for (let i = 0; i < array.length; i++) {
+         total += array[i];
+      }
+      sum();
+   };
+   return [average, min, max, length];
+}
+
+//TEST 5
+function analyzeArray(array) {
+   const object = {
+      average: null,
+      min: null,
+      max: null,
+      length: null,
+   };
+   let requiredVals;
+   const indexCheck = [];
+
+   //test whether all indexes are numbers
+   for (let i = 0; i < array.length; i++) {
+      if (typeof array[i] === number) {
+         indexCheck.push(true);
+      } else {
+         indexCheck.push(false);
+      }
+   }
+   if (indexCheck.includes(false)) {
+      throw new Error("The array contains an index that is not a number");
+   } else {
+      requiredVals = populateObj(array);
+   }
+   let i = 0;
+   for(const val in object){
+     object[val] =  requiredVals[i];
+     i++;
+   }
+   return object;
+}
+
 export { capitalise, reversesString, calculate, shiftString };

@@ -16,6 +16,15 @@ describe("All tests to be carried out", () => {
    });
 
    test("shift alphanumeric characters by a shift factor", () => {
-      expect(shiftString("a b", 1)).toBe("b c");
+      expect(shiftString("a b!", 1)).toBe("b c!");
+   });
+
+   test("returns an object with properties: average, min, max, and length", () => {
+      expect(analzeArray([10, 15, 21, 3])).toBe({
+         average: 49,
+         min: 3,
+         max: 21,
+         length: 4
+      })
    });
 });
