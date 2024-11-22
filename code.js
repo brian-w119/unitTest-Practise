@@ -1,3 +1,4 @@
+//TEST 1
 function capitalise(text) {
    let newWord = text.split("");
    newWord[0] = text[0].toUpperCase();
@@ -5,6 +6,7 @@ function capitalise(text) {
    return newWord;
 }
 
+//TEST 2
 function reversesString(text) {
    let word = text;
    word = word.split("");
@@ -13,6 +15,7 @@ function reversesString(text) {
    return word;
 }
 
+//TEST 3
 function calculate(num1, num2, operation) {
    let result;
    if (operation === "+") {
@@ -26,6 +29,8 @@ function calculate(num1, num2, operation) {
    }
    return result;
 }
+
+//TEST 4
 function shiftString(string, shift) {
    const outputArr = [];
    let newString = string;
@@ -50,35 +55,38 @@ function regexTest(string) {
    return regex.test(string);
 }
 
+const object = {
+   average: null,
+   min: null,
+   max: null,
+   length: null,
+};
+
 function populateObj(array) {
-   const min = Math.min(array);
-   const max = Math.max(array);
    const length = array.length;
+   const min = Math.min(...array);
+   const max = Math.max(...array);
 
    const sum = () => {
       let total = 0;
       for (let i = 0; i < array.length; i++) {
          total += array[i];
       }
-      sum();
+      return total;
    };
+
+   const average = sum() / length;
    return [average, min, max, length];
 }
 
 //TEST 5
 function analyzeArray(array) {
-   const object = {
-      average: null,
-      min: null,
-      max: null,
-      length: null,
-   };
    let requiredVals;
    const indexCheck = [];
 
    //test whether all indexes are numbers
    for (let i = 0; i < array.length; i++) {
-      if (typeof array[i] === number) {
+      if (typeof array[i] === "number") {
          indexCheck.push(true);
       } else {
          indexCheck.push(false);
@@ -90,11 +98,11 @@ function analyzeArray(array) {
       requiredVals = populateObj(array);
    }
    let i = 0;
-   for(const val in object){
-     object[val] =  requiredVals[i];
-     i++;
+   for (const val in object) {
+      object[val] = requiredVals[i];
+      i++;
    }
    return object;
 }
 
-export { capitalise, reversesString, calculate, shiftString };
+export { capitalise, reversesString, calculate, shiftString, analyzeArray };

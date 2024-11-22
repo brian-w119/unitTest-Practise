@@ -1,4 +1,10 @@
-import { calculate, reversesString, capitalise, shiftString } from "./code.js";
+import {
+   calculate,
+   reversesString,
+   capitalise,
+   shiftString,
+   analyzeArray,
+} from "./code.js";
 
 describe("All tests to be carried out", () => {
    const testString = "cat";
@@ -20,11 +26,11 @@ describe("All tests to be carried out", () => {
    });
 
    test("returns an object with properties: average, min, max, and length", () => {
-      expect(analzeArray([10, 15, 21, 3])).toBe({
-         average: 49,
+      expect(analyzeArray([10, 15, 21, 3])).toStrictEqual({
+         average: 12.25,
          min: 3,
          max: 21,
-         length: 4
-      })
+         length: 4,
+      });
    });
 });
